@@ -6,6 +6,7 @@ import {
   Link
 } from "react-router-dom";
 import Character from "../components/Character";
+import Episode from "../components/Episode";
 import Home from "../components/Home";
 import Location from "../components/Location";
 
@@ -21,6 +22,9 @@ export default function Routes() {
         </Route>
         <Route path="/location/:id" exact>
           <Location />
+        </Route>
+        <Route path="/episode/:id" exact>
+          <Episode />
         </Route>
       </div>
     </Router>

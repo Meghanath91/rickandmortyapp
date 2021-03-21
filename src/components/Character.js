@@ -41,7 +41,7 @@ function Character(props) {
   const displayLocation = () => {
     return (
       <Link to={`/location/${location.id}`} >
-        <Location episode={episode} />
+        <p>{location.name}</p>
       </Link>
     );
   }
@@ -51,9 +51,7 @@ function Character(props) {
       <div>
         <h3>{character.name}</h3>
         <p>{character.status}</p>
-        <Link to={`/location/${location.id}`}>
-          <p>{location.name}</p>
-        </Link>
+        {displayLocation()}
         <h4>Episodes</h4>
         {displayEpisodes()}
       </div>
