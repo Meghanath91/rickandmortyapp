@@ -18,27 +18,64 @@ nav {
 }
 .characterlist-container {
   padding: 15px;
+  color: rgb(58, 95, 1);
+  font-size: 1rem;
 }
 .character-img {
   width: 200px;
   border-radius: 25px;
+  border-style: solid;
+  border-color: greenyellow;
+}
+.character-img-in-page {
+  width: 80%;
+  border-radius: 25px;
+  border-style: solid;
+  border-color: greenyellow;
 }
 .character-card {
-  background-color: gray;
-  width: 20%;
-  height: 40vh;
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-top: 5%;
 }
+.character-card p,
+h3 {
+  text-align: center;
+  color: rgb(58, 95, 1);
+  font-size: 1.3rem;
+}
+
 .episode-main-container {
   width: 80%;
+  text-align: center;
+  color: rgb(58, 95, 1);
 }
 .episodes-container {
   display: flex;
   width: 100%;
   flex-wrap: wrap;
   justify-content: center;
+}
+.episode-card {
+  border-style: solid;
+  border-color: greenyellow;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  border-radius: 10px;
+  width: 200px;
+  height: 60px;
+  padding: 10px;
+  color: white;
+  background-color: rgb(88, 90, 87);
+}
+.episode-link {
+  color: #000;
+  text-decoration: none;
+  /* background-color: hotpink; */
+  padding: 15px;
 }
 .logo-container {
   display: flex;

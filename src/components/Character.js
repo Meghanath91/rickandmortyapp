@@ -28,9 +28,10 @@ function Character() {
 
   const displayEpisodes = () => {
     return episode.map((episode) => {
+      console.log(episode)
       return (
         <Link className="episode-link" to={`/episode/${episode.id}`} key={episode.id}>
-          <div>
+          <div className="episode-card">
             {episode.name}
           </div>
         </Link>
@@ -40,7 +41,7 @@ function Character() {
 
   const displayLocation = () => {
     return (
-      <Link to={`/location/${location.id}`}>
+      <Link className="episode-link" to={`/location/${location.id}`}>
         <p>Location : {location.name}</p>
       </Link>
     );
@@ -56,12 +57,12 @@ function Character() {
             <section className="character-container">
               <div className="character-card">
                 <img
-                  className="character-img"
+                  className="character-img-in-page"
                   src={character.image}
                   alt={character.name}
                 />
                 <h3>{character.name}</h3>
-                <p>Status : {character.status}</p>
+                <p><span>Status :</span> {character.status}</p>
                 {displayLocation()}
               </div>
               <div className="episode-main-container">
