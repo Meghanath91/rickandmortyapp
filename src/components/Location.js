@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import { useQuery } from "@apollo/client";
-import PropTypes from "prop-types";
 import { GET_LOCATION } from "../GraphQL/queries/getLocation";
+import Error from "./Error";
+import Loading from "./Loading";
 
-function Location(props) {
+function Location() {
   const { id } = useParams();
   const [location, setLocation] = useState({});
   const [residents, setResidents] = useState([]);
-  console.log(id);
   const { error, loading, data } = useQuery(GET_LOCATION, {
     variables: { id: id },
   });
@@ -31,9 +31,17 @@ function Location(props) {
   };
   return (
     <div>
-      <h1>{location.name}</h1>
-      <h4>Residents</h4>
-      {displayResidents()}
+      {error ? (
+        <Error />
+      ) : loading ? (
+        <Loading />
+      ) : (
+            <div>
+              <h1>{location.name}</h1>
+              <h4>Residents</h4>
+              {displayResidents()}
+            </div>
+          )}
     </div>
   );
 }

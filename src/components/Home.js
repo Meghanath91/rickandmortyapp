@@ -4,6 +4,8 @@ import { GET_CHARACTERS } from "../GraphQL/queries/getCharacters";
 import InfiniteScroll from "react-infinite-scroll-component";
 import Characters from "./Characters";
 import { Link } from "react-router-dom";
+import Loading from "./Loading";
+import Error from "./Error";
 
 export default function Home() {
   const [characters, setCharacters] = useState([]);
@@ -15,7 +17,6 @@ export default function Home() {
 
   useEffect(() => {
     if (data) {
-      console.log(data);
       setCharacters(data.characters.results);
     }
   }, [data]);
@@ -29,32 +30,41 @@ export default function Home() {
 
   const displayCharacters = () => {
     return characters.map((character) => {
-      return <Link to={`/character/${character.id}`} key={character.id}>
-        <Characters
-          id={character.id}
-          character={character}
-        />
-      </Link>;
+      return (
+        <Link to={`/character/${character.id}`} key={character.id}>
+          <Characters id={character.id} character={character} />
+        </Link>
+      );
     });
   };
 
   return (
     <div>
-      <InfiniteScroll
-        dataLength={characters.length}
-        next={fetchMoreData}
-        loader={<h4>Loading...</h4>}
-        hasMore={nextPage}
-        height="50vh"
-        style={{ display: "flex", flexWrap: "wrap", justifyContent: "center" }}
-        endMessage={
-          <p style={{ textAlign: "center" }}>
-            <b>That's it !!!</b>
-          </p>
-        }
-      >
-        {displayCharacters()}
-      </InfiniteScroll>
+      {error ? (
+        <Error />
+      ) : loading ? (
+        <Loading />
+      ) : (
+            <InfiniteScroll
+              dataLength={characters.length}
+              next={fetchMoreData}
+              loader={<h4>Loading...</h4>}
+              hasMore={nextPage}
+              height="50vh"
+              style={{
+                display: "flex",
+                flexWrap: "wrap",
+                justifyContent: "center",
+              }}
+              endMessage={
+                <p style={{ textAlign: "center" }}>
+                  <b>That's it !!!</b>
+                </p>
+              }
+            >
+              {displayCharacters()}
+            </InfiniteScroll>
+          )}
     </div>
   );
 }

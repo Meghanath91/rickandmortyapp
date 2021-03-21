@@ -17,7 +17,7 @@ function Characters({ character }) {
 }
 
 Characters.propTypes = {
-
+  props: PropTypes.object
 }
 
 export default Characters

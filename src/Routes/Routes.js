@@ -1,10 +1,5 @@
 import React from "react";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import Character from "../components/Character";
 import Episode from "../components/Episode";
 import Home from "../components/Home";
@@ -28,5 +23,5 @@ export default function Routes() {
         </Route>
       </div>
     </Router>
-  )
+  );
 }

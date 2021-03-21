@@ -10,7 +10,7 @@ function Episodes({ episode }) {
 }
 
 Episodes.propTypes = {
-
+  props: PropTypes.object
 }
 
 export default Episodes
