@@ -63,7 +63,7 @@ export default function Home() {
   const displayCharacters = () => {
     return characters.map((character) => {
       return (
-        <Link className="link" to={`/character/${character.id}`} key={character.id}>
+        <Link className="links" to={`/character/${character.id}`} key={character.id}>
           <Characters id={character.id} character={character} />
         </Link>
       );
