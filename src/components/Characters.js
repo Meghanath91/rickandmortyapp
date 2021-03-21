@@ -2,11 +2,9 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 function Characters({ character }) {
-  const handleClick = (e) => {
-    console.log(e)
-  }
+
   return (
-    <div onClick={handleClick}>
+    <div >
       {" "}
       <img
         className="profile-pic"
