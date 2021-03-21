@@ -2,15 +2,15 @@ import React, { useEffect, useState } from "react";
 import { useQuery } from "@apollo/client";
 import { GET_CHARACTERS } from "../GraphQL/queries";
 import InfiniteScroll from "react-infinite-scroll-component";
-import Character from "./Character";
+import Characters from "./Characters";
+import { Link } from "react-router-dom";
 
-export default function Main() {
-
+export default function Home() {
   const [characters, setCharacters] = useState([]);
-  const [nextPage, setNextPage] = useState(1)
+  const [nextPage, setNextPage] = useState(1);
 
   const { error, loading, data } = useQuery(GET_CHARACTERS, {
-    variables: { page: nextPage }
+    variables: { page: nextPage },
   });
 
   useEffect(() => {
@@ -22,11 +22,23 @@ export default function Main() {
 
   const fetchMoreData = () => {
     if (data) {
-
-      setNextPage(data.characters.info.next)
+      setNextPage(data.characters.info.next);
       setCharacters([...characters, ...data.characters.results]);
     }
   };
+
+  const displayCharacters = () => {
+    return characters.map((character) => {
+      return <Link to={`/character/${character.id}`} key={character.id}>
+        <Characters
+          id={character.id}
+          key={character.id}
+          character={character}
+        />
+      </Link>;
+    });
+  };
+
   return (
     <div>
       <InfiniteScroll
@@ -42,9 +54,7 @@ export default function Main() {
           </p>
         }
       >
-        {characters.map((character) => {
-          return <Character key={character.id} character={character} />;
-        })}
+        {displayCharacters()}
       </InfiniteScroll>
     </div>
   );

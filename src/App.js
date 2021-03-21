@@ -7,7 +7,7 @@ import {
   from,
 } from "@apollo/client";
 import { onError } from "@apollo/client/link/error";
-import Main from "./components/Main";
+import Routes from "./Routes/Routes";
 
 const errorLink = onError(({ graphqlErrors, networkError }) => {
   if (graphqlErrors) {
@@ -28,7 +28,7 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
-      <Main />
+      <Routes />
     </ApolloProvider>
   );
 }
