@@ -5,6 +5,7 @@ import { GET_CHARACTER } from "../GraphQL/queries/getCharacter";
 import Error from "./Error";
 import Loading from "./Loading";
 import '../css/style.css'
+
 function Character() {
   let { id } = useParams();
   const [character, setCharacter] = useState({});
@@ -65,7 +66,7 @@ function Character() {
                 {displayLocation()}
               </div>
               <div className="episode-main-container">
-                <h4>Episodes</h4>
+                <h3>Episodes</h3>
                 <div className="entity-container">
                   {displayEpisodes()}
                 </div>
