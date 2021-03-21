@@ -28,9 +28,8 @@ function Character() {
 
   const displayEpisodes = () => {
     return episode.map((episode) => {
-      console.log(episode)
       return (
-        <Link className="episode-link" to={`/episode/${episode.id}`} key={episode.id}>
+        <Link className="entity-link" to={`/episode/${episode.id}`} key={episode.id}>
           <div className="card">
             {episode.name}
           </div>
@@ -41,7 +40,7 @@ function Character() {
 
   const displayLocation = () => {
     return (
-      <Link className="episode-link" to={`/location/${location.id}`}>
+      <Link className="entity-link" to={`/location/${location.id}`}>
         <p>Location : {location.name}</p>
       </Link>
     );

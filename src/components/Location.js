@@ -24,7 +24,7 @@ function Location() {
     return residents.map((resident) => {
       return (
         <Link
-          className="episode-link"
+          className="entity-link"
           to={`/character/${resident.id}`}
           key={resident.id}
         >

@@ -23,7 +23,7 @@ function Episode() {
   const displayCharacters = () => {
     return characters.map((character) => {
       return (
-        <Link to={`/character/${character.id}`} className="episode-link">
+        <Link to={`/character/${character.id}`} className="entity-link">
           <div className="card">{character.name}</div>
         </Link>
       );

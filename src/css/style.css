@@ -3,16 +3,6 @@ nav {
   justify-content: space-between;
   background-color: white;
 }
-
-.links {
-  text-decoration: none;
-  text-align: center;
-  color: #000;
-  font-weight: 500;
-}
-.link a:visited {
-  text-decoration: none;
-}
 .character-container {
   display: flex;
 }
@@ -45,7 +35,6 @@ h3 {
   color: rgb(58, 95, 1);
   font-size: 1.3rem;
 }
-
 .episode-main-container {
   width: 80%;
   text-align: center;
@@ -71,10 +60,11 @@ h3 {
   color: white;
   background-color: rgb(88, 90, 87);
 }
-.episode-link {
+.entity-link {
   color: #000;
   text-decoration: none;
   padding: 15px;
+  text-align: center;
 }
 .logo-container {
   display: flex;
