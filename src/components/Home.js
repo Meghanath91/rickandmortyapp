@@ -32,7 +32,6 @@ export default function Home() {
       return <Link to={`/character/${character.id}`} key={character.id}>
         <Characters
           id={character.id}
-          key={character.id}
           character={character}
         />
       </Link>;
