@@ -1,9 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
-
+import '../css/style.css'
 function Characters({ character }) {
   return (
-    <div>
+    <div className="characterlist-container">
       {" "}
       <img
         className="character-img"

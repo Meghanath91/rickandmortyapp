@@ -1,0 +1,43 @@
+nav {
+  display: flex;
+  justify-content: space-between;
+  background-color: white;
+}
+
+a:link {
+  text-decoration: none;
+  text-align: center;
+}
+.link a:visited {
+  text-decoration: none;
+}
+.characterlist-container {
+  padding: 15px;
+}
+.character-img {
+  width: 200px;
+  border-radius: 25px;
+}
+.logo-container {
+  display: flex;
+  color: rgb(0, 0, 0);
+}
+.logo {
+  width: 300x;
+  height: 200px;
+}
+.logo-container h3 {
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+}
+.search-container {
+  /* width: 20%;
+  display: flex; */
+  justify-content: space-between;
+  margin-top: 5%;
+  margin-right: 10%;
+}
+#outlined-name {
+  z-index: 1;
+}
