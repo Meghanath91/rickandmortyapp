@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useQuery } from "@apollo/client";
 import PropTypes from "prop-types";
 import { Link, useParams } from "react-router-dom";
-import { GET_CHARACTER } from "../GraphQL/getCharacter";
+import { GET_CHARACTER } from "../GraphQL/queries/getCharacter";
 import Episodes from "./Episodes";
 import Location from "./Location";
 
@@ -17,7 +17,6 @@ function Character(props) {
 
   useEffect(() => {
     if (data) {
-      console.log(data.character, "this is what you want");
       setCharacter(data.character);
       if (data.character.episode) {
         setEpisode(data.character.episode);

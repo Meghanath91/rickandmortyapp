@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useQuery } from "@apollo/client";
-import { GET_CHARACTERS } from "../GraphQL/queries";
+import { GET_CHARACTERS } from "../GraphQL/queries/getCharacters";
 import InfiniteScroll from "react-infinite-scroll-component";
 import Characters from "./Characters";
 import { Link } from "react-router-dom";
