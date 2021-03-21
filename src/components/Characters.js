@@ -1,24 +1,22 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React from "react";
+import PropTypes from "prop-types";
 
 function Characters({ character }) {
-
   return (
-    <div >
+    <div>
       {" "}
       <img
-        className="profile-pic"
+        className="character-img"
         src={character.image}
-        alt="Tim Baker Profile Pic"
+        alt={character.name}
       />
-      <li key={character.id}>{character.name}</li>
+      <p>{character.name}</p>
     </div>
-  )
+  );
 }
 
 Characters.propTypes = {
-  props: PropTypes.object
-}
+  props: PropTypes.object,
+};
 
-export default Characters
-
+export default Characters;

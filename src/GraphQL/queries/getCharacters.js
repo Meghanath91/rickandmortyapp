@@ -12,6 +12,7 @@ export const GET_CHARACTERS = gql`
     ) {
       info {
         next
+        pages
       }
       results {
         name

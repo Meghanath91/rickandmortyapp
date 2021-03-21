@@ -15,6 +15,7 @@ export default function Home() {
   const [gender, setGender] = useState("");
   const [status, setStatus] = useState("");
 
+
   const { error, loading, data } = useQuery(GET_CHARACTERS, {
     variables: { page: nextPage, name: search, gender: gender, status: status },
   });
@@ -115,7 +116,7 @@ export default function Home() {
                 next={fetchMoreData}
                 loader={<h4>Loading...</h4>}
                 hasMore={nextPage}
-                height="100vh"
+                height="60vh"
                 style={{
                   display: "flex",
                   flexWrap: "wrap",
@@ -129,7 +130,9 @@ export default function Home() {
               >
                 {displayCharacters()}
               </InfiniteScroll>
+
             </div>
+
           )}
     </div>
   );
