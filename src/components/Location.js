@@ -23,10 +23,12 @@ function Location() {
   const displayResidents = () => {
     return residents.map((resident) => {
       return (
-        <Link className="episode-link" to={`/character/${resident.id}`} key={resident.id}>
-          <div className="card">
-            {resident.name}
-          </div>
+        <Link
+          className="episode-link"
+          to={`/character/${resident.id}`}
+          key={resident.id}
+        >
+          <div className="card">{resident.name}</div>
         </Link>
       );
     });
@@ -41,11 +43,7 @@ function Location() {
             <div className="location-container">
               <h1>{location.name}</h1>
               <h4>Residents</h4>
-              <div className="entity-container">
-                {displayResidents()}
-
-              </div>
-
+              <div className="entity-container">{displayResidents()}</div>
             </div>
           )}
     </div>

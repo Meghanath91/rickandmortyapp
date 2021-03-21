@@ -23,8 +23,8 @@ function Episode() {
   const displayCharacters = () => {
     return characters.map((character) => {
       return (
-        <Link to={`/character/${character.id}`}>
-          <p key={character.id}> {character.name}</p>
+        <Link to={`/character/${character.id}`} className="episode-link">
+          <div className="card">{character.name}</div>
         </Link>
       );
     });
@@ -36,12 +36,13 @@ function Episode() {
       ) : loading ? (
         <Loading />
       ) : (
-            <div>
-              {" "}
+            <div className="location-container">
               <h1>
-                {episode.name} {episode.episode}
+                {episode.name} : {episode.episode}
               </h1>
-              <h4>{displayCharacters()}</h4>
+              <div className="entity-container">
+                {displayCharacters()}
+              </div>
             </div>
           )}
     </div>
