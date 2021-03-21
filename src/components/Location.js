@@ -23,8 +23,10 @@ function Location() {
   const displayResidents = () => {
     return residents.map((resident) => {
       return (
-        <Link to={`/character/${resident.id}`}>
-          <p key={resident.id}>{resident.name}</p>
+        <Link className="episode-link" to={`/character/${resident.id}`} key={resident.id}>
+          <div className="card">
+            {resident.name}
+          </div>
         </Link>
       );
     });
@@ -36,10 +38,14 @@ function Location() {
       ) : loading ? (
         <Loading />
       ) : (
-            <div>
+            <div className="location-container">
               <h1>{location.name}</h1>
               <h4>Residents</h4>
-              {displayResidents()}
+              <div className="entity-container">
+                {displayResidents()}
+
+              </div>
+
             </div>
           )}
     </div>

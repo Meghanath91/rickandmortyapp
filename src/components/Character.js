@@ -31,7 +31,7 @@ function Character() {
       console.log(episode)
       return (
         <Link className="episode-link" to={`/episode/${episode.id}`} key={episode.id}>
-          <div className="episode-card">
+          <div className="card">
             {episode.name}
           </div>
         </Link>
@@ -67,7 +67,7 @@ function Character() {
               </div>
               <div className="episode-main-container">
                 <h4>Episodes</h4>
-                <div className="episodes-container">
+                <div className="entity-container">
                   {displayEpisodes()}
                 </div>
               </div>

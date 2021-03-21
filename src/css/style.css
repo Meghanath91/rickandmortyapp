@@ -51,13 +51,13 @@ h3 {
   text-align: center;
   color: rgb(58, 95, 1);
 }
-.episodes-container {
+.entity-container {
   display: flex;
   width: 100%;
   flex-wrap: wrap;
   justify-content: center;
 }
-.episode-card {
+.card {
   border-style: solid;
   border-color: greenyellow;
   display: flex;
@@ -74,7 +74,6 @@ h3 {
 .episode-link {
   color: #000;
   text-decoration: none;
-  /* background-color: hotpink; */
   padding: 15px;
 }
 .logo-container {
@@ -91,13 +90,12 @@ h3 {
   display: flex;
   align-items: center;
 }
+.location-container {
+  text-align: center;
+  color: rgb(58, 95, 1);
+}
 .search-container {
-  /* width: 20%;
-  display: flex; */
   justify-content: space-between;
   margin-top: 5%;
   margin-right: 10%;
-}
-#outlined-name {
-  z-index: 1;
 }
