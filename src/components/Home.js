@@ -6,14 +6,17 @@ import Characters from "./Characters";
 import { Link } from "react-router-dom";
 import Loading from "./Loading";
 import Error from "./Error";
+import { FormControl, InputLabel, Select, TextField } from "@material-ui/core";
 
 export default function Home() {
   const [characters, setCharacters] = useState([]);
   const [nextPage, setNextPage] = useState(1);
   const [search, setSearch] = useState("");
+  const [gender, setGender] = useState("");
+  const [status, setStatus] = useState("");
 
   const { error, loading, data } = useQuery(GET_CHARACTERS, {
-    variables: { page: nextPage, name: search },
+    variables: { page: nextPage, name: search, gender: gender, status: status },
   });
 
   useEffect(() => {
@@ -33,7 +36,14 @@ export default function Home() {
     const searchTerm = e.target.value;
     setSearch(searchTerm);
   };
-
+  const handleGender = (e) => {
+    const newGender = e.target.value;
+    setGender(newGender);
+  };
+  const handleStatus = (e) => {
+    const newStatus = e.target.value;
+    setStatus(newStatus);
+  };
   const displayCharacters = () => {
     return characters.map((character) => {
       return (
@@ -48,12 +58,51 @@ export default function Home() {
     <div>
       <h1>Rick & Morty App</h1>
       <div>
-        <input
+        <TextField
+          variant="outlined"
           type="search"
-          placeholder="Search"
-          value={search}
+          id="outlined-name"
+          label="Search by name"
           onChange={handleSearch}
+          value={search}
         />
+        <FormControl variant="outlined">
+          <InputLabel htmlFor="outlined-age-native-simple">Gender</InputLabel>
+          <Select
+            native
+            value={gender}
+            onChange={handleGender}
+            label="Gender"
+            inputProps={{
+              name: "gender",
+              id: "outlined-age-native-simple",
+            }}
+          >
+            <option aria-label="None" value="" />
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Genderless">Genderless</option>
+            <option value="Unknown">Unknown</option>
+          </Select>
+        </FormControl>
+        <FormControl variant="outlined">
+          <InputLabel htmlFor="outlined-age-native-simple">Status</InputLabel>
+          <Select
+            native
+            value={status}
+            onChange={handleStatus}
+            label="status"
+            inputProps={{
+              name: "gender",
+              id: "outlined-age-native-simple",
+            }}
+          >
+            <option aria-label="None" value="" />
+            <option value="Alive">Alive</option>
+            <option value="Dead">Dead</option>
+            <option value="Unknown">Unknown</option>
+          </Select>
+        </FormControl>
       </div>
       {error ? (
         <Error />

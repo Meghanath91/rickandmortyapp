@@ -1,16 +1,23 @@
-import { gql } from '@apollo/client'
+import { gql } from "@apollo/client";
 export const GET_CHARACTERS = gql`
-query getCharacters($page: Int!,$name:String)
-{
-  characters(page: $page, filter:{name:$name}) {
-    info {
-      next
-    }
-    results {
-      name
-      image
-      id
+  query getCharacters(
+    $page: Int!
+    $name: String
+    $gender: String
+    $status: String
+  ) {
+    characters(
+      page: $page
+      filter: { name: $name, gender: $gender, status: $status }
+    ) {
+      info {
+        next
+      }
+      results {
+        name
+        image
+        id
+      }
     }
   }
-}
 `;
