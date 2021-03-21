@@ -10,9 +10,10 @@ import Error from "./Error";
 export default function Home() {
   const [characters, setCharacters] = useState([]);
   const [nextPage, setNextPage] = useState(1);
+  const [search, setSearch] = useState("");
 
   const { error, loading, data } = useQuery(GET_CHARACTERS, {
-    variables: { page: nextPage },
+    variables: { page: nextPage, name: search },
   });
 
   useEffect(() => {
@@ -28,6 +29,11 @@ export default function Home() {
     }
   };
 
+  const handleSearch = (e) => {
+    const searchTerm = e.target.value;
+    setSearch(searchTerm);
+  };
+
   const displayCharacters = () => {
     return characters.map((character) => {
       return (
@@ -40,30 +46,41 @@ export default function Home() {
 
   return (
     <div>
+      <h1>Rick & Morty App</h1>
+      <div>
+        <input
+          type="search"
+          placeholder="Search"
+          value={search}
+          onChange={handleSearch}
+        />
+      </div>
       {error ? (
         <Error />
       ) : loading ? (
         <Loading />
       ) : (
-            <InfiniteScroll
-              dataLength={characters.length}
-              next={fetchMoreData}
-              loader={<h4>Loading...</h4>}
-              hasMore={nextPage}
-              height="50vh"
-              style={{
-                display: "flex",
-                flexWrap: "wrap",
-                justifyContent: "center",
-              }}
-              endMessage={
-                <p style={{ textAlign: "center" }}>
-                  <b>That's it !!!</b>
-                </p>
-              }
-            >
-              {displayCharacters()}
-            </InfiniteScroll>
+            <div>
+              <InfiniteScroll
+                dataLength={characters.length}
+                next={fetchMoreData}
+                loader={<h4>Loading...</h4>}
+                hasMore={nextPage}
+                height="100vh"
+                style={{
+                  display: "flex",
+                  flexWrap: "wrap",
+                  justifyContent: "center",
+                }}
+                endMessage={
+                  <p style={{ textAlign: "center" }}>
+                    <b>That's it !!!</b>
+                  </p>
+                }
+              >
+                {displayCharacters()}
+              </InfiniteScroll>
+            </div>
           )}
     </div>
   );
