@@ -4,7 +4,10 @@ import { useQuery } from "@apollo/client";
 import { GET_LOCATION } from "../GraphQL/queries/getLocation";
 import Error from "./Error";
 import Loading from "./Loading";
-
+/**
+ * @func Location
+ * @return {HTML}
+ */
 function Location() {
   const { id } = useParams();
   const [location, setLocation] = useState({});
@@ -19,7 +22,10 @@ function Location() {
       setResidents(data.location.residents);
     }
   }, [data]);
-
+  /**
+   * @func displayResidents
+   * @return {HTML}
+   */
   const displayResidents = () => {
     return residents.map((resident) => {
       return (

@@ -1,6 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
 import '../css/style.css'
+
+/**
+ * @func Characters
+ * @param {object} props
+ * @return {HTML}
+ */
 function Characters({ character }) {
   return (
     <div className="characterlist-container">

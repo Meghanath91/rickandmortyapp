@@ -5,6 +5,10 @@ import { GET_EPISODE } from "../GraphQL/queries/getEpisode";
 import Error from "./Error";
 import Loading from "./Loading";
 
+/**
+ * @func Episode
+ * @return {HTML}
+ */
 function Episode() {
   const { id } = useParams();
   const [episode, setEpisode] = useState({});
@@ -20,6 +24,10 @@ function Episode() {
     }
   }, [data]);
 
+  /**
+   * @func displayCharacters
+   * @return {HTML}
+   */
   const displayCharacters = () => {
     return characters.map((character) => {
       return (

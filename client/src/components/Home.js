@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { useQuery } from "@apollo/client";
-// import { makeStyles } from '@material-ui/core/styles';
 import { GET_CHARACTERS } from "../GraphQL/queries/getCharacters";
 import InfiniteScroll from "react-infinite-scroll-component";
 import Characters from "./Characters";
@@ -8,28 +7,19 @@ import { Link } from "react-router-dom";
 import Loading from "./Loading";
 import Error from "./Error";
 import { FormControl, InputLabel, Select, TextField } from "@material-ui/core";
-import '../css/style.css'
-import logo from '../images/logo1.gif'
+import "../css/style.css";
+import logo from "../images/logo1.gif";
 
-// const useStyles = makeStyles({
-//   root: {
-//     backgroundColor: "white",
-//   },
-//   media: {
-//     height: 140,
-//   },
-// });
-
+/**
+ * @func Home
+ * @return {HTML}
+ */
 export default function Home() {
-
-  // const classes = useStyles();
-
   const [characters, setCharacters] = useState([]);
   const [nextPage, setNextPage] = useState(1);
   const [search, setSearch] = useState("");
   const [gender, setGender] = useState("");
   const [status, setStatus] = useState("");
-
 
   const { error, loading, data } = useQuery(GET_CHARACTERS, {
     variables: { page: nextPage, name: search, gender: gender, status: status },
@@ -41,29 +31,55 @@ export default function Home() {
     }
   }, [data]);
 
+  /**
+   * @func fetchMoreData
+   * @return {HTML}
+   */
   const fetchMoreData = () => {
     if (data) {
       setNextPage(data.characters.info.next);
       setCharacters([...characters, ...data.characters.results]);
     }
   };
-
+  /**
+   * @func handleSearch
+   * @param {object} e
+   * @return {HTML}
+   */
   const handleSearch = (e) => {
     const searchTerm = e.target.value;
     setSearch(searchTerm);
   };
+  /**
+   * @func handleGender
+   * @param {object} e
+   * @return {HTML}
+   */
   const handleGender = (e) => {
     const newGender = e.target.value;
     setGender(newGender);
   };
+  /**
+   * @func handleStatus
+   * @param {object} e
+   * @return {HTML}
+   */
   const handleStatus = (e) => {
     const newStatus = e.target.value;
     setStatus(newStatus);
   };
+  /**
+   * @func displayCharacters
+   * @return {HTML}
+   */
   const displayCharacters = () => {
     return characters.map((character) => {
       return (
-        <Link to={`/character/${character.id}`} key={character.id} className="entity-link">
+        <Link
+          to={`/character/${character.id}`}
+          key={character.id}
+          className="entity-link"
+        >
           <Characters id={character.id} character={character} />
         </Link>
       );
@@ -87,7 +103,6 @@ export default function Home() {
             onChange={handleSearch}
             value={search}
             color="Primary"
-
           />
           <FormControl variant="outlined">
             <InputLabel htmlFor="outlined-age-native-simple">Gender</InputLabel>
@@ -127,7 +142,6 @@ export default function Home() {
             </Select>
           </FormControl>
         </div>
-
       </nav>
 
       {error ? (
@@ -155,9 +169,7 @@ export default function Home() {
               >
                 {displayCharacters()}
               </InfiniteScroll>
-
             </div>
-
           )}
     </main>
   );

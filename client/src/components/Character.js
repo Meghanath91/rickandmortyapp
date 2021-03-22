@@ -4,8 +4,12 @@ import { Link, useParams } from "react-router-dom";
 import { GET_CHARACTER } from "../GraphQL/queries/getCharacter";
 import Error from "./Error";
 import Loading from "./Loading";
-import '../css/style.css'
+import "../css/style.css";
 
+/**
+ * @func Character
+ * @return {HTML}
+ */
 function Character() {
   let { id } = useParams();
   const [character, setCharacter] = useState({});
@@ -27,18 +31,28 @@ function Character() {
     }
   }, [data]);
 
+  /**
+   * @func displayEpisodes
+   * @return {HTML}
+   */
   const displayEpisodes = () => {
     return episode.map((episode) => {
       return (
-        <Link className="entity-link" to={`/episode/${episode.id}`} key={episode.id}>
-          <div className="card">
-            {episode.name}
-          </div>
+        <Link
+          className="entity-link"
+          to={`/episode/${episode.id}`}
+          key={episode.id}
+        >
+          <div className="card">{episode.name}</div>
         </Link>
       );
     });
   };
 
+  /**
+   * @func displayLocation
+   * @return {HTML}
+   */
   const displayLocation = () => {
     return (
       <Link className="entity-link" to={`/location/${location.id}`}>
@@ -62,14 +76,14 @@ function Character() {
                   alt={character.name}
                 />
                 <h3>{character.name}</h3>
-                <p><span>Status :</span> {character.status}</p>
+                <p>
+                  <span>Status :</span> {character.status}
+                </p>
                 {displayLocation()}
               </div>
               <div className="episode-main-container">
                 <h3>Episodes</h3>
-                <div className="entity-container">
-                  {displayEpisodes()}
-                </div>
+                <div className="entity-container">{displayEpisodes()}</div>
               </div>
             </section>
           )}
