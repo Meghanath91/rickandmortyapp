@@ -8,4 +8,8 @@
 
 ## Screenshots
 
+!["Main Page"](https://github.com/Meghanath91/rickandmortyapp/blob/more-docs/client/public/images/Screenshot%20from%202021-03-21%2021-21-45.png)
 
+!["Form"](https://github.com/Meghanath91/rickandmortyapp/blob/more-docs/client/public/images/Screenshot%20from%202021-03-21%2021-23-18.png)
+
+!["Mobile version"](https://github.com/Meghanath91/rickandmortyapp/blob/more-docs/client/public/images/Screenshot%20from%202021-03-21%2021-24-16.png)
