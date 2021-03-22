@@ -1,0 +1,12 @@
+version: "3"
+services:
+  react-ui:
+    build:
+      context: ./client
+    ports:
+      - "3000:3000"
+    container_name: rickandmorty-ui
+    stdin_open: true
+    volumes:
+      - ./client:/usr/src/app/client
+      - /usr/src/app/client/node_modules
